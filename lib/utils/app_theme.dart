@@ -23,14 +23,14 @@ class AppTheme {
               fontFamily: 'Inter'),
           labelMedium: TextStyle(
               fontSize: AppSize.size14,
-              color: AppColors.grey,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'Roboto'),
+              color: AppColors.white,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Inter'),
           labelLarge: TextStyle(
             fontSize: AppSize.size16,
             color: AppColors.lightGrey,
             fontWeight: FontWeight.w500,
-            fontFamily: 'Roboto',
+            fontFamily: 'Inter',
           ),
          
          
@@ -38,7 +38,7 @@ class AppTheme {
           titleLarge: TextStyle(
               fontSize: AppSize.size27,
               color: AppColors.black,
-              fontFamily: 'Roboto',
+              fontFamily: 'Inter',
               fontWeight: FontWeight.w900),
           titleMedium: TextStyle(
               fontSize: AppSize.size24,
@@ -46,26 +46,26 @@ class AppTheme {
               fontFamily: 'Inter',
               fontWeight: FontWeight.w600), 
           titleSmall: TextStyle(
-              fontSize: AppSize.size18,
-              color: AppColors.black,
-              fontFamily: 'Roboto',
+              fontSize: AppSize.size24,
+              color: AppColors.titleColor,
+              fontFamily: 'Inter',
               fontWeight: FontWeight.w600), 
 
 //---------------subtitle-----------------------//  
           displaySmall: TextStyle(
-              fontSize: AppSize.size27,
-              color: AppColors.black,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w900),
+              fontSize: AppSize.size14,
+              color: AppColors.subTitleColor.withOpacity(0.90),
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w400),
           displayMedium: TextStyle(
               fontSize: AppSize.size14,
               color: AppColors.white,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w400), 
           displayLarge: TextStyle(
-              fontSize: AppSize.size18,
-              color: AppColors.black,
-              fontFamily: 'Roboto',
+              fontSize: AppSize.size16,
+              color: AppColors.white,
+              fontFamily: 'Inter',
               fontWeight: FontWeight.w600), 
 
 

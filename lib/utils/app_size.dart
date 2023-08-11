@@ -20,6 +20,14 @@ class AppSize {
   static double buttonWidth = 56.0.h;
   static double fieldHeight = 56.0.h;
 
+  // Image Height
+  static double imageHeightsmall = 56.0.h;
+  static double imageWidthsmall = 56.0.h;
+
+  // Image Height
+  static double imageHeightlarge = 56.0.h;
+  static double imageWidthlarge = 56.0.h;
+
   // Dots height
   static double dotHeight = 6.0.h;
   static double dotWidth = 34.0.w;

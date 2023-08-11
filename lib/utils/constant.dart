@@ -50,21 +50,26 @@ class Constants {
   static const onBoardingTitle1 = "Focused and \nscheduled fitness";
   static const onBoardingTitle2 = "There are many \nvariations of passages";
   static const onBoardingTitle3 = "Contrary to \npopular belief,";
-  static const onBoardingDescription1 = "Amet minim mollit non deserunt ullamco est sita liqua dolor do amet sintelit officia";
-  static const onBoardingDescription2 = "Amet minim mollit non deserunt ullamco est sita liqua dolor do amet sintelit officia";
-  static const onBoardingDescription3 = "Amet minim mollit non deserunt ullamco est sita liqua dolor do amet sintelit officia";
+  static const onBoardingDescription1 =
+      "Amet minim mollit non deserunt ullamco est sita liqua dolor do amet sintelit officia";
+  static const onBoardingDescription2 =
+      "Amet minim mollit non deserunt ullamco est sita liqua dolor do amet sintelit officia";
+  static const onBoardingDescription3 =
+      "Amet minim mollit non deserunt ullamco est sita liqua dolor do amet sintelit officia";
   static const onBoardingImage1 = "assets/Skip1.jpg";
   static const onBoardingImage2 = "assets/Skip2.jpg";
   static const onBoardingImage3 = "assets/Skip3.jpg";
-
+  static const next = "Next";
 
   //*--------------Login Screen--------------------*
   static const welcome = "Hi, Welcome!";
-  static const enterYouMobile = "Enter your mobile number to create account.";
-  static const mobileNumber = "mobile number";
+  static const loginHeading = "Continue with number";
+  static const loginSubheading  = "Let’s login for explore continues";
+  static const loginButton= "Continue";
+  static const loginImage = "assets/Group51.png";
   static const getOtp = "Get OTP";
   static const enterMobileNumber = "Enter mobile number";
-    static const mustBe10Char = "Mobile number must be 10 digits";
+  static const mustBe10Char = "Mobile number must be 10 digits";
   static const orWith = "Or with";
   static const loginWithFacbook = "Login with Facebook";
   static const loginWithGoogle = "Login with Google";

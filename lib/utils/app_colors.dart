@@ -10,7 +10,11 @@ class AppColors {
   static const Color white = Color(0xffFFFFFF);
   static const Color green = Color(0xff34A853);
   static const Color shadowColor = Color(0xffEEECEC);
+  static const Color progressBackgroundColor = Color(0xff8EA6C0);
   static const Color buttonColor = Color(0xff282B2B);
+  static const Color titleColor = Color(0xff022150);
+  static const Color subTitleColor = Color(0xff969AA8);
+  // static const Color buttonColor = Color(0xff282B2B);
 
 
   // Unused for now ------------------

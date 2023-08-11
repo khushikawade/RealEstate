@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:realstate/ui/user_module/login_module/login_screen.dart';
+import 'package:realstate/ui/user_module/login_module/login_view_model.dart';
 import 'package:realstate/ui/user_module/onboarding_module/onboarding_page.dart';
 import 'package:realstate/ui/user_module/onboarding_module/onboarding_view_model.dart';
 import 'package:realstate/ui/user_module/splash_module/splash_screen.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
              create: (_) => SplashScreenModel(context: context)),
              ChangeNotifierProvider(
              create: (_) => OnBoardingViewModel()),
+             ChangeNotifierProvider(
+             create: (_) =>  LoginViewModel(context: context)),
 
         ],
         child: ScreenUtilInit(
@@ -36,7 +40,7 @@ class MyApp extends StatelessWidget {
                 debugShowFloatingThemeButton: false,
                 builder: (ThemeData lightTheme, ThemeData darkTheme) {
                   return MaterialApp(
-                    // locale: model.appLocal,
+                    //  locale: model.appLocal,
                           title: 'Real State',
                           debugShowCheckedModeBanner: false,
                           theme: lightTheme,
@@ -46,8 +50,8 @@ class MyApp extends StatelessWidget {
                              '/': (context) => SplashScreen(),
                              '/splash': (context) => SplashScreen(),
                               '/onboarding_section': (context) => OnBoardingPage(),
+                               '/login_screen': (context) => LoginScreen(),
                             },     
-                  
                      navigatorKey: AppUtil.navigationKey,
                   );
                 });

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
 import 'package:realstate/helper_widget/Text_widgets.dart';
+import 'package:realstate/helper_widget/progress_indicator.dart';
 import 'package:realstate/ui/user_module/splash_module/splash_view_model.dart';
 import 'package:realstate/utils/constant.dart';
 
@@ -49,6 +50,10 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             headlineTextWidget(Constants.splashTitle,
             context), 
+            SizedBox(
+              height: 15.h,
+            ),
+             buildProgressIndicator(),
             
           ] 
         )

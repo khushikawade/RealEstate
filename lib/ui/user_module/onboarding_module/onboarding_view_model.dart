@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:realstate/ui/user_module/onboarding_module/model/onboarding_model.dart';
+import 'package:realstate/utils/app_util.dart';
 import 'package:realstate/utils/constant.dart';
 
 class OnBoardingViewModel extends ChangeNotifier {
@@ -48,6 +49,9 @@ class OnBoardingViewModel extends ChangeNotifier {
 
 
     notifyListeners();
+  }
+  onNextPress(){
+    Navigator.pushNamed(AppUtil.getContext(), '/login_screen');
   }
 
 }

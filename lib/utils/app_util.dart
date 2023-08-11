@@ -140,7 +140,7 @@ class AppUtil {
   //   return languageCode;
   // }
 
-    // use to translate language
+  // use to translate language
   // static String translation(String languageKey) {
   //   try {
   //     if (languageKey.isNotEmpty) {
