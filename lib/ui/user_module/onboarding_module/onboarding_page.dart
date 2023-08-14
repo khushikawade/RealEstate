@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:realstate/custom_fonts/real_state_icons.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
 import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/ui/user_module/onboarding_module/onboarding_view_model.dart';
@@ -25,7 +26,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<OnBoardingViewModel>(context);
-    // return Scaffold(body: onBoardingView(model));
     return Scaffold(body: onBoardingView(model));
   }
 
@@ -62,7 +62,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         onPageChanged: (value) {
           model.currentIndex = value;
         },
-        // allowImplicitScrolling: true,
+        allowImplicitScrolling: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return PageViewItemWidget(model, index);
@@ -150,7 +150,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               width: 8.w,
                             ),
                             Icon(
-                              Icons.arrow_forward_outlined,
+                              //  Icons.arrow_forward_outlined,
+                                RealState.next,
                               size: 17.h,
                               color: AppColors.white,
                             ),

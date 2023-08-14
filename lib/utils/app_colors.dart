@@ -14,7 +14,13 @@ class AppColors {
   static const Color buttonColor = Color(0xff282B2B);
   static const Color titleColor = Color(0xff022150);
   static const Color subTitleColor = Color(0xff969AA8);
-  // static const Color buttonColor = Color(0xff282B2B);
+  static const Color textFieldInput = Color(0xff151624);
+  static const Color textFieldHint = Color(0xff79869F);
+  static const Color errorColor = Color(0xffFF586C);
+   static const Color codeExpire = Color(0xff79869F);
+    static const Color timer = Color(0xff156CF7);
+
+  
 
 
   // Unused for now ------------------

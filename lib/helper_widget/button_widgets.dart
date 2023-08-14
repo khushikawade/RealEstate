@@ -40,7 +40,7 @@ class _ButtonWidgetState extends State<ButtonWidget>
         height: AppSize.buttonHeight,
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(66.r),
+          borderRadius: BorderRadius.circular(15.r),
           color: widget.backgroundcolorname,
           border: Border.all(
             width: 1,

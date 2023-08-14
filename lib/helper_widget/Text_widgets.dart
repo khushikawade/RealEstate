@@ -22,7 +22,7 @@ Widget buttonTextWidget(text, context){
  return Text(text, style: AppTheme.lightTheme.textTheme.labelMedium); 
 }
 Widget headingTextWidget(text, context){
- return Text(text, style: AppTheme.lightTheme.textTheme.titleSmall); 
+ return Text(text,textAlign: TextAlign.center, style: AppTheme.lightTheme.textTheme.titleSmall); 
 }
 Widget subheadingTextWidget(text, context){
  return Text(text, style: AppTheme.lightTheme.textTheme.displaySmall); 

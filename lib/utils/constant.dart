@@ -83,16 +83,31 @@ class Constants {
   static const save = "Save & Publish Event";
 
   //----------------otp verification screen---------------------
-  static const otpVerification = "OTP verification";
-  static const enterOtpSentTo = "Enter the OTP sent to";
+  static const otpVerification = "Verify your \nphone number";
+  static const codeExpiresIn = "Code expires in :";
   static const didNotReceive = "Didn’t receive OTP?";
-  static const resend = "Resend";
-  static const verifyAndContinue = "Verify and Continue";
+  static const resend = "Resend Code";
+  static const verifyButton= "Verify";
+  static const verifyImage = "assets/Illustration_icon.png";
+  static const verifyError = "Please input the valid OTP";
+  static const verifyAndContinue = "Didn’t receive code?";
   static const verifyHeading = "Please check \nyour email";
   static const verifySubHeading = "We’ve sent a code to helloworld@gmail.com.";
   static const verify = "Verify";
 
   static const fontFamily = 'Poppins';
+
+  //----------------otp verification screen---------------------//
+  static const registrationHeading ="Complete your profile";
+  static const  registrationSubheading ="Fill out the required information";
+  static const registrationImage ="";
+  static const nameFieldHint ="Enter your name";
+  static const  nameFieldLabel="Michelle Yeoh";
+  // static const  ="Enter your name";
+  // static const  ="";
+  // static const  ="";
+  // static const  ="";
+  // static const  ="";
 
   //----------------Forgot Password screen---------------------
   static const rememberPassword = "Remember password? ";

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_size.dart';
-
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
@@ -15,11 +15,11 @@ class AppTheme {
       // ),
 
       textTheme: TextTheme(
-//---------------Label-----------------------//    
+//---------------Label-----------------------//
           labelSmall: TextStyle(
-              fontSize: AppSize.size15,
-              color: AppColors.black,
-              fontWeight: FontWeight.w400,
+              fontSize: AppSize.size14,
+              color: AppColors.textFieldInput,
+              fontWeight: FontWeight.w500,
               fontFamily: 'Inter'),
           labelMedium: TextStyle(
               fontSize: AppSize.size14,
@@ -32,9 +32,8 @@ class AppTheme {
             fontWeight: FontWeight.w500,
             fontFamily: 'Inter',
           ),
-         
-         
-//---------------Title-----------------------//  
+
+//---------------Title-----------------------//
           titleLarge: TextStyle(
               fontSize: AppSize.size27,
               color: AppColors.black,
@@ -44,14 +43,14 @@ class AppTheme {
               fontSize: AppSize.size24,
               color: AppColors.white,
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w600), 
+              fontWeight: FontWeight.w600),
           titleSmall: TextStyle(
               fontSize: AppSize.size24,
               color: AppColors.titleColor,
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w600), 
+              fontWeight: FontWeight.w600),
 
-//---------------subtitle-----------------------//  
+//---------------subtitle-----------------------//
           displaySmall: TextStyle(
               fontSize: AppSize.size14,
               color: AppColors.subTitleColor.withOpacity(0.90),
@@ -61,23 +60,19 @@ class AppTheme {
               fontSize: AppSize.size14,
               color: AppColors.white,
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w400), 
+              fontWeight: FontWeight.w400),
           displayLarge: TextStyle(
               fontSize: AppSize.size16,
               color: AppColors.white,
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w600), 
+              fontWeight: FontWeight.w600),
 
-
-
-//---------------HeadLine-----------------------//  
+//---------------HeadLine-----------------------//
           headlineLarge: TextStyle(
               fontSize: AppSize.size33,
               color: AppColors.black,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w500),
-         
-          
           bodySmall: TextStyle(
               fontSize: AppSize.size15,
               color: AppColors.black,
@@ -153,6 +148,7 @@ class AppTheme {
           // ),
           //colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentColor)
           ));
+  
 
   ThemeData? _themeData;
 
