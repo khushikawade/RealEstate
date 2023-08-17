@@ -94,20 +94,27 @@ class Constants {
   static const verifyHeading = "Please check \nyour email";
   static const verifySubHeading = "We’ve sent a code to helloworld@gmail.com.";
   static const verify = "Verify";
-
   static const fontFamily = 'Poppins';
 
-  //----------------otp verification screen---------------------//
+  //----------------registration screen---------------------//
   static const registrationHeading ="Complete your profile";
   static const  registrationSubheading ="Fill out the required information";
   static const registrationImage ="";
-  static const nameFieldHint ="Enter your name";
-  static const  nameFieldLabel="Michelle Yeoh";
-  // static const  ="Enter your name";
-  // static const  ="";
-  // static const  ="";
-  // static const  ="";
-  // static const  ="";
+  static const nameFieldHint ="Michelle Yeoh";
+  static const nameFieldLabel="Enter your name";
+  static const emailFieldHint ="realestate@12356.com";
+  static const emailFieldLabel="Email";
+  static const dateFieldHint ="25/12/98";
+  static const dateFieldLabel="Date of Birth";
+  static const continueButton= "Continue";
+
+  //----------------registration screen---------------------//
+  static const pending ="Pending";
+  static const joinedWaitlist ="Joined Waitlist";
+  static const pendingforApproval ="Pending for Approval";
+  static const days ="3 Day’s";
+
+  
 
   //----------------Forgot Password screen---------------------
   static const rememberPassword = "Remember password? ";

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:realstate/utils/app_util.dart';
 
@@ -10,11 +12,19 @@ class VerificationModel extends ChangeNotifier {
   final FocusNode focusNode = FocusNode();
   bool forceErrorState = false;
   String errorMsg = '';
+  Timer? _timer;
 
   bool _showLoader = false;
   bool get showLoader => _showLoader;
   set showLoader(bool value) {
     _showLoader = value;
+    notifyListeners();
+  }
+
+  int _start = 20;
+  int get start => _start;
+  set start(int value) {
+    _start = value;
     notifyListeners();
   }
 
@@ -29,7 +39,30 @@ class VerificationModel extends ChangeNotifier {
       forceErrorState = false;
       // errorMsg = false;
       notifyListeners();
-       Navigator.popAndPushNamed(AppUtil.getContext(), "/success_screen");
+      Navigator.popAndPushNamed(AppUtil.getContext(), "/success_screen");
     }
+  }
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        if (_start == 0) {
+          timer.cancel();
+          notifyListeners();
+
+          // Cancel the timer
+        } else {
+          _start--;
+        }
+      },
+    );
+  }
+  void dispose() {
+    _timer?.cancel();
+    pinController.dispose();
+    focusNode.dispose();
+    super.dispose();
   }
 }

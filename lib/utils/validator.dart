@@ -1,7 +1,8 @@
+// import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:realstate/utils/constant.dart';
+// import 'package:gestures/gestures.dart';
 // import 'app_util.dart';
-
 
 class Validator {
 // bool? Function(String?)? usernameValidator = (String? username) {
@@ -14,12 +15,12 @@ class Validator {
 //password validator possible structure
   static String? passwordValidator(dynamic password) {
     // String? Function(String?)? passwordValidator = (String? password) {
-    if (password.isEmpty) {
+    if (password!.isEmpty) {
       // Fluttertoast.showToast(msg: "Password can't be empty");
       return Constants.fieldCanNotBeEmpty;
     } else if (password.length < 6) {
       // Fluttertoast.showToast(msg: "Please enter valid password");
-       return Constants.mustBe8Char;
+      return Constants.mustBe8Char;
     }
     return null;
   }
@@ -47,7 +48,7 @@ class Validator {
       if (Validator.emailValidation(value.trim())) {
         return null;
       } else {
-        return  Constants.invalidEmail;
+        return Constants.invalidEmail;
       }
     } else {
       return Constants.fieldCanNotBeEmpty;
@@ -72,10 +73,10 @@ class Validator {
     //   return null;
     // }
     if (!mobileRegExp.hasMatch(value)) {
-       return Constants.enterMobileNumber;
+      return Constants.enterMobileNumber;
     } else if (value.isEmpty) {
       //AppUtil.showToast(Constants.enterMobileNumber);
-      return  Constants.fieldCanNotBeEmpty;
+      return Constants.fieldCanNotBeEmpty;
     } else if (value.length < 10) {
       return Constants.mustBe10Char;
     } else {
@@ -85,7 +86,7 @@ class Validator {
 
   static String? fieldCheckboxEmpty(String value) {
     // Text('Field can not be emptyoooo');
-    String message =  Constants.fieldCanNotBeEmpty;
+    String message = Constants.fieldCanNotBeEmpty;
     //  String message =  Text('Field can not be emptyoooo',
     //       style:
     //           const TextStyle(fontSize: 50, backgroundColor: Color(0xff858D93)));
@@ -96,19 +97,27 @@ class Validator {
     }
   }
 
-  static String? nameValidate(dynamic value) {
-    if (value.isNotEmpty) {
+  static String? nameValidate(String value) {
+    print(value);
+    if (value.length > 4) {
       return null;
     } else {
       return Constants.pleaseEnterName;
     }
   }
 
+  static String? fieldNameValidate(String value) {
+    if (value == null || value.isEmpty || value.length < 2) {
+      return Constants.pleaseEnterName;
+    }
+    return null;
+  }
+
   static String? fieldEmpty(String? value) {
     if (value!.isNotEmpty) {
       return null;
     } else {
-      return  Constants.fieldCanNotBeEmpty;
+      return Constants.fieldCanNotBeEmpty;
     }
   }
 
@@ -119,9 +128,9 @@ class Validator {
       return null;
     }
     if (value.isEmpty) {
-      return  Constants.enterEmail; 
+      return Constants.enterEmail;
     } else {
-       return  Constants.invalidEmail;
+      return Constants.invalidEmail;
     }
   }
 }

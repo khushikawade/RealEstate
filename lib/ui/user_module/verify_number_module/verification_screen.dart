@@ -20,6 +20,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final otpVerifyModel =
           Provider.of<VerificationModel>(context, listen: false);
+      otpVerifyModel.startTimer();
     });
     super.initState();
   }
@@ -51,14 +52,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
   verificationForm(VerificationModel model) {
     return Form(
-       autovalidateMode: AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         key: model.globalKey,
         child: Padding(
             padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 0),
             child: Column(
               children: [
-                pinputOTPField(context, model.pinController, model.focusNode, Constants.verifyError, 
-                    model.forceErrorState),
+                pinputOTPField(context, model.pinController, model.focusNode,
+                    Constants.verifyError, model.forceErrorState),
                 SizedBox(
                   height: 15.h,
                 ),
@@ -71,10 +72,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     callBack: () {
                       model.verificationButtonPressed();
                     }),
-                    SizedBox(
+                SizedBox(
                   height: 15.h,
                 ),
-                
               ],
             )));
   }

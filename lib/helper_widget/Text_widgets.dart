@@ -18,6 +18,9 @@ Widget onboardingSubtitleWidget(text, context) {
 Widget onboardingLabelWidget(text, context){
  return Text(text, style: AppTheme.lightTheme.textTheme.displayLarge); 
 }
+Widget formLabelWidget(text, context){
+ return Text(text,textAlign: TextAlign.left, style: AppTheme.lightTheme.textTheme.labelSmall!.copyWith(color: AppColors.black)); 
+}
 Widget buttonTextWidget(text, context){
  return Text(text, style: AppTheme.lightTheme.textTheme.labelMedium); 
 }

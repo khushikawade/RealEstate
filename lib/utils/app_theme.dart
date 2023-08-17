@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
+// import 'package:pinput/pinput.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_size.dart';
 

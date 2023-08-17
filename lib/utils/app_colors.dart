@@ -17,8 +17,9 @@ class AppColors {
   static const Color textFieldInput = Color(0xff151624);
   static const Color textFieldHint = Color(0xff79869F);
   static const Color errorColor = Color(0xffFF586C);
-   static const Color codeExpire = Color(0xff79869F);
-    static const Color timer = Color(0xff156CF7);
+  static const Color codeExpire = Color(0xff79869F);
+  static const Color timer = Color(0xff156CF7);
+  static const Color  pinColor = Color(0xffE8E8E8);
 
   
 

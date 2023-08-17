@@ -12,8 +12,11 @@ import 'package:realstate/ui/user_module/splash_module/splash_screen.dart';
 import 'package:realstate/ui/user_module/splash_module/splash_view_model.dart';
 import 'package:realstate/ui/user_module/verify_number_module/verification_model.dart';
 import 'package:realstate/ui/user_module/verify_number_module/verification_screen.dart';
+import 'package:realstate/ui/waitlist/waitlist_model.dart';
 import 'package:realstate/utils/app_theme.dart';
 import 'package:realstate/utils/app_util.dart';
+
+import 'ui/waitlist/waitlist_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,6 +40,8 @@ class MyApp extends StatelessWidget {
              create: (_) =>  VerificationModel(context: context)),
               ChangeNotifierProvider(
              create: (_) =>  registrationModel(context: context)),
+             ChangeNotifierProvider(
+             create: (_) =>  WaitListScreenModel(context: context)),
 
         ],
         child: ScreenUtilInit(
@@ -61,6 +66,8 @@ class MyApp extends StatelessWidget {
                             '/login_screen': (context) => LoginScreen(),
                             '/verify_mobile_number_screen': (context) => VerificationScreen(),
                              '/success_screen': (context) => RegistrationScreen(),
+                             '/waitlist_screen': (context) => WaitListScreen(),
+                                
                             },     
                      navigatorKey: AppUtil.navigationKey,
                   );
