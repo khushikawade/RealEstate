@@ -1,5 +1,6 @@
 // import 'dart:js';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:realstate/utils/app_util.dart';
@@ -41,7 +42,7 @@ class registrationModel extends ChangeNotifier {
         onTap &&
         Validator.emailValidateNew(emailField.text) == null) {
       // callRegisterApi();
-      Navigator.popAndPushNamed(AppUtil.getContext(), '/waitlist_screen');
+      Navigator.popAndPushNamed(AppUtil.getContext(), '/home_screen');
     }
   }
 
@@ -63,11 +64,12 @@ class registrationModel extends ChangeNotifier {
       print("Date is not selected");
     }
   }
-   void redirectToTermPage() {
-   print("terms taped.");
-   
+
+  void redirectToTermPage() {
+    print("terms taped.");
   }
+
   void redirectToPolicyPage() {
-  print("Privecy policy Taped.");
+    print("Privecy policy Taped.");
   }
 }

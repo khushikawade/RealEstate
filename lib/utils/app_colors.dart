@@ -20,6 +20,10 @@ class AppColors {
   static const Color codeExpire = Color(0xff79869F);
   static const Color timer = Color(0xff156CF7);
   static const Color  pinColor = Color(0xffE8E8E8);
+  static const Color  homeIcon = Color(0xffB8B8B8);
+  static const Color  bottomBar = Color(0xff2D2D2F);
+  
+ 
 
   
 

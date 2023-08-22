@@ -21,7 +21,7 @@ class VerificationModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  int _start = 20;
+  int _start = 60;
   int get start => _start;
   set start(int value) {
     _start = value;
@@ -43,22 +43,28 @@ class VerificationModel extends ChangeNotifier {
     }
   }
 
+  resendCode() {
+    start = 60;
+    startTimer();
+  }
+
   void startTimer() {
     const oneSec = Duration(seconds: 1);
     _timer = Timer.periodic(
       oneSec,
       (Timer timer) {
-        if (_start == 0) {
+        if (start == 0) {
           timer.cancel();
-          notifyListeners();
 
           // Cancel the timer
         } else {
-          _start--;
+          start--;
+          // print(start);
         }
       },
     );
   }
+@override
   void dispose() {
     _timer?.cancel();
     pinController.dispose();

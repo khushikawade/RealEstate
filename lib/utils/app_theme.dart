@@ -74,10 +74,10 @@ class AppTheme {
               fontFamily: 'Inter',
               fontWeight: FontWeight.w500),
           bodySmall: TextStyle(
-              fontSize: AppSize.size15,
+              fontSize: AppSize.size14,
               color: AppColors.black,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w400)
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w600)
 
           //     titleSmall: TextStyle(
           //         fontSize: TitleSmallTextSize,

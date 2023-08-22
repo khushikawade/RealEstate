@@ -1,5 +1,6 @@
 class Constants {
   //-------------------Demo Text-------------------------//
+  static const appTitle = "RealState Finder";
   static const sucessCode = 200;
 
   static const wrongError = 500;
@@ -45,6 +46,7 @@ class Constants {
   //---------------Splash Screen-----------------------//
   static const splashTitle = "Building Hub";
   static const splashImage = "assets/Splash.jpg";
+  static const appBarImage = "assets/appbarimage.png";
 
   //---------------Onboarding Screen-----------------------//
   static const onBoardingTitle1 = "Focused and \nscheduled fitness";
@@ -64,8 +66,8 @@ class Constants {
   //*--------------Login Screen--------------------*
   static const welcome = "Hi, Welcome!";
   static const loginHeading = "Continue with number";
-  static const loginSubheading  = "Let’s login for explore continues";
-  static const loginButton= "Continue";
+  static const loginSubheading = "Let’s login for explore continues";
+  static const loginButton = "Continue";
   static const loginImage = "assets/Group51.png";
   static const getOtp = "Get OTP";
   static const enterMobileNumber = "Enter mobile number";
@@ -84,10 +86,10 @@ class Constants {
 
   //----------------otp verification screen---------------------
   static const otpVerification = "Verify your \nphone number";
-  static const codeExpiresIn = "Code expires in :";
-  static const didNotReceive = "Didn’t receive OTP?";
-  static const resend = "Resend Code";
-  static const verifyButton= "Verify";
+  static const codeExpiresIn = "Code expires in : ";
+  static const didNotReceive = "Didn’t receive code?";
+  static const resend = " Resend Code";
+  static const verifyButton = "Verify";
   static const verifyImage = "assets/Illustration_icon.png";
   static const verifyError = "Please input the valid OTP";
   static const verifyAndContinue = "Didn’t receive code?";
@@ -97,24 +99,37 @@ class Constants {
   static const fontFamily = 'Poppins';
 
   //----------------registration screen---------------------//
-  static const registrationHeading ="Complete your profile";
-  static const  registrationSubheading ="Fill out the required information";
-  static const registrationImage ="";
-  static const nameFieldHint ="Michelle Yeoh";
-  static const nameFieldLabel="Enter your name";
-  static const emailFieldHint ="realestate@12356.com";
-  static const emailFieldLabel="Email";
-  static const dateFieldHint ="25/12/98";
-  static const dateFieldLabel="Date of Birth";
-  static const continueButton= "Continue";
+  static const registrationHeading = "Complete your profile";
+  static const registrationSubheading = "Fill out the required information";
+  static const registrationImage = "";
+  static const nameFieldHint = "Michelle Yeoh";
+  static const nameFieldLabel = "Enter your name";
+  static const emailFieldHint = "realestate@12356.com";
+  static const emailFieldLabel = "Email";
+  static const dateFieldHint = "25/12/98";
+  static const dateFieldLabel = "Date of Birth";
+  static const continueButton = "Continue";
 
-  //----------------registration screen---------------------//
-  static const pending ="Pending";
-  static const joinedWaitlist ="Joined Waitlist";
-  static const pendingforApproval ="Pending for Approval";
-  static const days ="3 Day’s";
+  //----------------waitlist screen---------------------//
+  static const pending = "Pending";
+  static const joinedWaitlist = "Joined Waitlist";
+  static const pendingforApproval = "Pending for Approval";
+  static const days = "3 Day’s";
 
-  
+  //----------------Home screen---------------------//
+  static const homeHeading = "Find your best property";
+  static const buyProperty = "Buy Property";
+  static const saleProperty = "Sale Property";
+  static const giveOnRent = "Give On Rent";
+  static const takeOnRent = "Take On Rent";
+  static const support = "Support";
+  static const previousPost = "Previous Post";
+  static const plot = "Plot";
+  static const land = "Land";
+  static const commercialConstructed = "Commercial Constructed";
+  static const residentialConstructed = "Residential Constructed";
+  static const residential = "Residential";
+  static const commercial = "Commercial";
 
   //----------------Forgot Password screen---------------------
   static const rememberPassword = "Remember password? ";

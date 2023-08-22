@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:realstate/ui/home_module/home_screen.dart';
+import 'package:realstate/ui/home_module/home_screen_model.dart';
+// import 'package:realstate/ui/user_module/Registration_module/image_picker.dart';
 import 'package:realstate/ui/user_module/Registration_module/registration_model.dart';
 import 'package:realstate/ui/user_module/Registration_module/registration_screen.dart';
 import 'package:realstate/ui/user_module/login_module/login_screen.dart';
@@ -30,19 +33,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-           ChangeNotifierProvider(
-             create: (_) => SplashScreenModel(context: context)),
-             ChangeNotifierProvider(
-             create: (_) => OnBoardingViewModel()),
-             ChangeNotifierProvider(
-             create: (_) =>  LoginViewModel(context: context)),
-             ChangeNotifierProvider(
-             create: (_) =>  VerificationModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => SplashScreenModel(context: context)),
+          ChangeNotifierProvider(create: (_) => OnBoardingViewModel()),
+          ChangeNotifierProvider(
+              create: (_) => LoginViewModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => VerificationModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => registrationModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => WaitListScreenModel(context: context)),
               ChangeNotifierProvider(
-             create: (_) =>  registrationModel(context: context)),
-             ChangeNotifierProvider(
-             create: (_) =>  WaitListScreenModel(context: context)),
-
+              create: (_) => HomeScreenModel(context: context)),
         ],
         child: ScreenUtilInit(
           builder: (BuildContext context, Widget? child) {
@@ -54,22 +57,23 @@ class MyApp extends StatelessWidget {
                 builder: (ThemeData lightTheme, ThemeData darkTheme) {
                   return MaterialApp(
                     //  locale: model.appLocal,
-                          title: 'Real State',
-                          debugShowCheckedModeBanner: false,
-                          theme: lightTheme,
-                          darkTheme: darkTheme,
-                           initialRoute: '/',
-                       routes: {
-                            '/': (context) => SplashScreen(),
-                            '/splash': (context) => SplashScreen(),
-                            '/onboarding_section': (context) => OnBoardingPage(),
-                            '/login_screen': (context) => LoginScreen(),
-                            '/verify_mobile_number_screen': (context) => VerificationScreen(),
-                             '/success_screen': (context) => RegistrationScreen(),
-                             '/waitlist_screen': (context) => WaitListScreen(),
-                                
-                            },     
-                     navigatorKey: AppUtil.navigationKey,
+                    title: 'Real State',
+                    debugShowCheckedModeBanner: false,
+                    theme: lightTheme,
+                    darkTheme: darkTheme,
+                    initialRoute: '/',
+                    routes: {
+                      '/': (context) => SplashScreen(),
+                      '/splash': (context) => SplashScreen(),
+                      '/onboarding_section': (context) => OnBoardingPage(),
+                      '/login_screen': (context) => LoginScreen(),
+                      '/verify_mobile_number_screen': (context) =>
+                          VerificationScreen(),
+                      '/success_screen': (context) => RegistrationScreen(),
+                      '/waitlist_screen': (context) => WaitListScreen(),
+                      '/home_screen': (context) => HomeScreen(),
+                    },
+                    navigatorKey: AppUtil.navigationKey,
                   );
                 });
           },

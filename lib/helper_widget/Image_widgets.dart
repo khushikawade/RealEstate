@@ -9,6 +9,14 @@ Widget fullScreenImage(String ImageUrl) {
         width: double.infinity, height: double.infinity, fit: BoxFit.cover),
   );
 }
+Widget appBarImage(String ImageUrl) {
+  return Container(
+    width: double.infinity,
+    height: 100.h,
+    child: Image.asset(ImageUrl,
+        width: double.infinity, height: 100.h, fit: BoxFit.cover),
+  );
+}
 Widget headingImage(String ImageUrl,) {
   return Center(
     child: Image.asset(ImageUrl,

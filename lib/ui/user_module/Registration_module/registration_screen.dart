@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/change_notifier.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
@@ -7,6 +8,7 @@ import 'package:realstate/helper_widget/Image_widgets.dart';
 import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/helper_widget/button_widgets.dart';
 import 'package:realstate/helper_widget/textFormField.dart';
+import 'package:realstate/ui/user_module/Registration_module/image_picker.dart';
 import 'package:realstate/ui/user_module/Registration_module/registration_model.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_size.dart';
@@ -39,6 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       SizedBox(
         height: 60.h,
       ),
+      // ImagePickerWidget(),
       headingTextWidget(Constants.registrationHeading, context),
       SizedBox(
         height: 20.h,
@@ -47,7 +50,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       SizedBox(
         height: 20.h,
       ),
-      headingImage(Constants.verifyImage),
+      ImagePickerWidget(),
+
       SizedBox(
         height: 20.h,
       ),
@@ -62,9 +66,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: Padding(
             padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 0),
             child: Column(
-              crossAxisAlignment:CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 formLabelWidget(Constants.nameFieldLabel, context),
+                formLabelWidget(Constants.nameFieldLabel, context),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -77,9 +81,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   false,
                   100,
                   keyboardType: TextInputType.text,
-                  onTap: () {
-                    print(Validator.emailValidateNew(model.emailField.text));
-                  },
+                  onChange: Validator.fieldNameValidate,
+                  onTap: () {},
                   icon: Icon(
                     RealState.user_rounded,
                     size: 14.h,
@@ -105,9 +108,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   false,
                   100,
                   keyboardType: TextInputType.text,
-                  onTap: () {
-                    print(Validator.emailValidateNew(model.emailField.text));
-                  },
+                  onChange: Validator.emailValidateNew,
+                  onTap: () {},
                   icon: Icon(
                     RealState.letter_unread,
                     size: 14.h,
@@ -119,7 +121,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                 formLabelWidget(Constants.dateFieldLabel, context),
+                formLabelWidget(Constants.dateFieldLabel, context),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -132,13 +134,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   true,
                   100,
                   keyboardType: TextInputType.text,
+                  onChange: Validator.fieldEmpty,
                   onTap: () {
                     return model.OntapFunction(context);
                   },
                   icon: Icon(
                     RealState.calendar_date,
                     size: 14.h,
-                    color:AppColors.primaryColor ,
+                    color: AppColors.primaryColor,
                   ),
                   validator: (val) {
                     return Validator.fieldEmpty(model.dateField.text);
