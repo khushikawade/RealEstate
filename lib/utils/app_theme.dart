@@ -77,7 +77,12 @@ class AppTheme {
               fontSize: AppSize.size14,
               color: AppColors.black,
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w600)
+              fontWeight: FontWeight.w600),
+           bodyMedium: TextStyle(
+              fontSize: AppSize.size14,
+             
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w500)    
 
           //     titleSmall: TextStyle(
           //         fontSize: TitleSmallTextSize,

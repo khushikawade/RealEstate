@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:realstate/ui/home_module/home_screen.dart';
-import 'package:realstate/ui/home_module/home_screen_model.dart';
+import 'package:realstate/ui/PreviousPostModule/PreviousPostScreen/PreviousPostModel.dart';
+import 'package:realstate/ui/PreviousPostModule/PreviousPostScreen/PreviousPostScreen.dart';
+import 'package:realstate/ui/home_module/HomeView/homeView.dart';
+import 'package:realstate/ui/home_module/HomeView/homeViewModel.dart';
+import 'package:realstate/ui/home_module/SuccessModule/successModel.dart';
+import 'package:realstate/ui/home_module/SuccessModule/successScreen.dart';
+import 'package:realstate/ui/home_module/ProfileModel/profileScreenModel.dart';
+import 'package:realstate/ui/home_module/formView/formViewModel.dart';
+import 'package:realstate/ui/home_module/homeScreen/home_screen_model.dart';
 // import 'package:realstate/ui/user_module/Registration_module/image_picker.dart';
 import 'package:realstate/ui/user_module/Registration_module/registration_model.dart';
 import 'package:realstate/ui/user_module/Registration_module/registration_screen.dart';
@@ -44,8 +51,18 @@ class MyApp extends StatelessWidget {
               create: (_) => registrationModel(context: context)),
           ChangeNotifierProvider(
               create: (_) => WaitListScreenModel(context: context)),
-              ChangeNotifierProvider(
+          ChangeNotifierProvider(
               create: (_) => HomeScreenModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => HomeViewModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => ProfileScreenModel(context: context)),
+          ChangeNotifierProvider(
+              create: (_) => FormViewModel(context: context)),
+          ChangeNotifierProvider(
+               create: (_) => SuccessScreenModel()),
+           ChangeNotifierProvider(
+               create: (_) => PreviousPostModel(context: context)),
         ],
         child: ScreenUtilInit(
           builder: (BuildContext context, Widget? child) {
@@ -67,11 +84,12 @@ class MyApp extends StatelessWidget {
                       '/splash': (context) => SplashScreen(),
                       '/onboarding_section': (context) => OnBoardingPage(),
                       '/login_screen': (context) => LoginScreen(),
-                      '/verify_mobile_number_screen': (context) =>
-                          VerificationScreen(),
-                      '/success_screen': (context) => RegistrationScreen(),
+                      '/Verification_screen': (context) =>VerificationScreen(),
+                      '/registration_screen': (context) => RegistrationScreen(),
                       '/waitlist_screen': (context) => WaitListScreen(),
                       '/home_screen': (context) => HomeScreen(),
+                      '/success_screen': (context) =>  SuccessScreen(),
+                      '/previouspost_screen': (context) =>  PreviousPostScreen(),
                     },
                     navigatorKey: AppUtil.navigationKey,
                   );

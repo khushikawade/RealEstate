@@ -23,9 +23,15 @@ Widget headingImage(String ImageUrl,) {
         width: 114.h, height: 114.h, fit: BoxFit.cover),
   );
 }
-Widget successImage(String ImageUrl,) {
+Widget waitlistImage(String ImageUrl,) {
   return Center(
     child: Image.asset(ImageUrl,
         width: 148.h, height: 148.h, fit: BoxFit.cover),
+  );
+}
+Widget successImage(String ImageUrl,) {
+  return Center(
+    child: Image.asset(ImageUrl,
+        width: 55.h, height: 55.h, fit: BoxFit.cover),
   );
 }

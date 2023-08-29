@@ -82,7 +82,7 @@ class Constants {
   static const emailAddress = "Email address";
   static const rememberMe = "Remember me";
   static const forgotPassword = "Forgot Password?";
-  static const save = "Save & Publish Event";
+  
 
   //----------------otp verification screen---------------------
   static const otpVerification = "Verify your \nphone number";
@@ -130,77 +130,60 @@ class Constants {
   static const residentialConstructed = "Residential Constructed";
   static const residential = "Residential";
   static const commercial = "Commercial";
+  static const industrial = "Industrial";
+  static const agriculture = "Agriculture";
+  static const green = "Green";
+  static const nonAgriculture = "Non-Agriculture";
+  static const office = "Office";
+  static const showroom = "Showroom";
+  static const independentBuilding = "Independent Building";
+  static const warehouse = "Warehouse";
+  static const industrialPlant = "Industrial Plant";
+  static const restaurant = "Restaurant";
+  static const bungalow = "Bungalow";
+  static const rowHouse = "Row House";
+  static const apartment = "Apartment";
+ 
+//----------------Popup Form---------------------//
+  static const formButton = "Submit";
+  static const state = "State";
+  static const city = "City";
+  static const locality = "Locality";
+  static const dimension = "Dimension";
+  static const size = "Size";
+  static const length = "Length";
+  static const width = "Width";
+  static const facing = "Facing";
+  static const north = "North";
+  static const east = "East";
+  static const south = "South";
+  static const west = "West";
+  static const features = "Features";
+  static const comment = "Comment";
+  static const front  = "Front ";
+  static const ft = "( Ft )";
+  static const sqFt = " ( Sq Ft )";
+  static const carpetArea  = "Carpet Area";
+  static const plotArea = " Plot Area";
+  static const acre  = " ( Acre )";
+  static const floor = " Floor";
+  static const hight = " Hight";
+  static const pleaseSelectFacing = "Please Select Facing";
 
-  //----------------Forgot Password screen---------------------
-  static const rememberPassword = "Remember password? ";
-  static const forgotPasswordSubText =
-      "Don’t worry! It happens. Please enter the \nemail associated with your account.";
-  static const enterYourEmail = "Enter your email address";
-  static const sendCode = "Send code";
+  //----------------Success Screen---------------------//
+  static const succesConstant = "No matching property right now. We will notify you once we find the right property";
+  static const succesSubheading = "Submittting Your Requiement";
+  static const succesHeading = "Thank Michelle Yeoh";
+  static const share = "Share";
+  static const shareImage = "assets/Facebook.png";
+  static const successImage = "assets/success_icon.png";
 
-  //----------------Reset Password screen---------------------
-  static const resetPassword = "Reset Password?";
-  static const resetPasswordSubText = "Please type something you’ll remember";
-  static const newPassword = "New Password";
-  static const confirmNewPassword = "Confirm new password";
-  static const resetPass = "Reset Password";
-
-  static const passwordChanged = "Password Changed";
-  static const passwordSubText =
-      "Your password has been changed succesfully changed succesfully";
-  static const backToLogin = "Back to login";
-
-  static const products = "Products";
-  static const dynamicHeading = "Jumper with cut out\n shoulder detail";
-
-  static const dynamicHeading2 = "High neck - Side pockets";
-  static const dynamicHeading3 = "128.00";
-  static const hashCode1 = "#B00005N5PF";
-  static const price = "\$20% Off";
-  static const image = "assets/icon/product1.png";
-
-  static const appBarTitle = "Your favorite yoga mat";
-  static const appBarTitle2 = "Girraj";
-  static const live = "Live";
-  static const twoK = "2.3k";
-  static const goLive = "Go Live";
-  static const upcomingShow = "Upcoming Show";
-  static const exclusive = "Exclusive top seller live streams";
-  static const upcoming = "Upcoming";
-  static const completed = "Completed";
-  static const available = "Available";
-  static const createLiveEvent = "Create Live Event";
-
-  //----------------Create Live Event--------------------
-  static const store = "Store";
-  static const selectStore = " Select Store";
-  static const product = "Product";
-  static const selectProduct = "Select Product";
-  static const title = "Title";
-  static const enterEventTitle = "Enter Event Title";
-  static const eventDate = "Event Date";
-  static const selectDate = "Select Date";
-  static const selectTime = "Select Time";
-  static const select = " Select";
-  static const eventTime = "Event Time";
-  static const duration = "Duration";
-  static const description = "Description";
-  static const enterDescription = "Enter Description";
-  static const addBannerImage = "Add Banner Image/Video *";
-  static const chooseAnImage = "Choose an image";
-  static const addAHost = "choose or Add a Host";
-  static const typeNameAndSelect = " Type Name & Select";
-  static const eventText1 =
-      "* Please select the Host name using this search field if you had created it earlier, else";
-  static const eventText2 = " Click Here to Add a Host.";
-  static const hideAdv = "Hide Advanced Setting";
-  static const makeThis = "Make this Show Public";
-  static const allowChat = "Allow Anonymous Chat";
-  static const enableSystem = "Enable System Message on \nBuyer Actions";
-  static const pleaseSelectImage = "Please Select the image";
-  static const pleaseSelectDate = "Please Select the Date";
-  static const pleaseSelectTime = "Please Select the Time";
-
+  //----------------Previos Post Page---------------------//
+  static const sortBy= "Sort by";
+  static const matches= "Matches";
+  static const delete= "Delete";
+  static const shareon= "Share on";
+  
 //--------logout-----------------//
   static const no = "No";
   static const yes = "Yes";

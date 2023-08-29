@@ -6,7 +6,7 @@ class LoginViewModel extends ChangeNotifier {
     required BuildContext context,
   }) {}
   TextEditingController mobileNoControllers = TextEditingController();
-  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  GlobalKey<FormState> loginGlobalKey = GlobalKey<FormState>();
 
   bool _showLoader = false;
   bool get showLoader => _showLoader;
@@ -23,10 +23,10 @@ class LoginViewModel extends ChangeNotifier {
 
   loginButtonPressed(){
     onLoginButtonTap = true;
-    if (globalKey.currentState!.validate()) {
+    if (loginGlobalKey.currentState!.validate()) {
       // callgetOtpApi();
       Navigator.pushNamed(
-            AppUtil.getContext(), '/verify_mobile_number_screen',
+            AppUtil.getContext(), '/Verification_screen',
             // arguments: user
             );
 

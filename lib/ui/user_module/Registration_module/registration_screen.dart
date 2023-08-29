@@ -1,10 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/change_notifier.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
-import 'package:realstate/helper_widget/Image_widgets.dart';
 import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/helper_widget/button_widgets.dart';
 import 'package:realstate/helper_widget/textFormField.dart';
@@ -15,7 +13,6 @@ import 'package:realstate/utils/app_size.dart';
 import 'package:realstate/utils/app_theme.dart';
 import 'package:realstate/utils/constant.dart';
 import 'package:realstate/utils/validator.dart';
-import 'package:image_picker/image_picker.dart';
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -25,10 +22,7 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final otpVerifyModel =
-          Provider.of<registrationModel>(context, listen: false);
-    });
+
     super.initState();
   }
 
@@ -62,7 +56,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   RegistrationForm(registrationModel model) {
     return Form(
         // autovalidateMode: AutovalidateMode.onUserInteraction,
-        key: model.globalKey,
+        key: model.registrationglobalKey,
         child: Padding(
             padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 0),
             child: Column(
@@ -77,16 +71,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   model.nameController,
                   Constants.nameFieldHint,
                   AppColors.primaryColor,
-                  AppColors.black,
+                  AppColors.primaryColor,
                   false,
                   100,
+                  1,
                   keyboardType: TextInputType.text,
                   onChange: Validator.fieldNameValidate,
                   onTap: () {},
-                  icon: Icon(
+                 icon: Icon(
                     RealState.user_rounded,
                     size: 14.h,
                   ),
+
                   validator: (val) {
                     return Validator.fieldNameValidate(
                         model.nameController.text);
@@ -104,9 +100,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   model.emailField,
                   Constants.emailFieldHint,
                   AppColors.primaryColor,
-                  AppColors.black,
+                  AppColors.primaryColor,
                   false,
                   100,
+                  1,
                   keyboardType: TextInputType.text,
                   onChange: Validator.emailValidateNew,
                   onTap: () {},
@@ -130,9 +127,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   model.dateField,
                   Constants.dateFieldHint,
                   AppColors.primaryColor,
-                  AppColors.black,
+                 AppColors.primaryColor,
                   true,
                   100,
+                  1,
                   keyboardType: TextInputType.text,
                   onChange: Validator.fieldEmpty,
                   onTap: () {

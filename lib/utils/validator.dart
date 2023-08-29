@@ -107,14 +107,14 @@ class Validator {
   }
 
   static String? fieldNameValidate(String value) {
-    if (value == null || value.isEmpty || value.length < 2) {
+    if (  value.length < 2) {
       return Constants.pleaseEnterName;
     }
     return null;
   }
 
   static String? fieldEmpty(String? value) {
-    if (value!.isNotEmpty) {
+    if (value != null || value!.isNotEmpty ) {
       return null;
     } else {
       return Constants.fieldCanNotBeEmpty;
@@ -127,7 +127,7 @@ class Validator {
     if (value!.isNotEmpty && validEmail.hasMatch(value)) {
       return null;
     }
-    if (value.isEmpty) {
+    if (value == null ||value.isEmpty) {
       return Constants.enterEmail;
     } else {
       return Constants.invalidEmail;

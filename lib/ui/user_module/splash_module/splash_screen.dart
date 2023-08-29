@@ -7,8 +7,6 @@ import 'package:realstate/helper_widget/progress_indicator.dart';
 import 'package:realstate/ui/user_module/splash_module/splash_view_model.dart';
 import 'package:realstate/utils/constant.dart';
 
-import '../../../utils/app_colors.dart';
-import '../../../utils/app_size.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

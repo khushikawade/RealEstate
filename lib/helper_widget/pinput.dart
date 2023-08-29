@@ -2,7 +2,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import 'package:realstate/custom_fonts/real_state_icons.dart';
 import 'package:realstate/utils/app_colors.dart';
 
 final defaultPinTheme = PinTheme(

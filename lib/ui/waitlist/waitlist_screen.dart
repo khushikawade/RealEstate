@@ -8,7 +8,6 @@ import 'package:realstate/helper_widget/waitlistRow.dart';
 import 'package:realstate/ui/waitlist/waitlist_model.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_theme.dart';
-import 'package:realstate/utils/app_util.dart';
 import 'package:realstate/utils/constant.dart';
 
 class WaitListScreen extends StatefulWidget {
@@ -19,9 +18,7 @@ class WaitListScreen extends StatefulWidget {
 class _WaitListScreenState extends State<WaitListScreen> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final model = Provider.of<WaitListScreenModel>(context, listen: false);
-    });
+   
     super.initState();
   }
 
@@ -40,7 +37,7 @@ class _WaitListScreenState extends State<WaitListScreen> {
       SizedBox(
         height: 60.h,
       ),
-      successImage(Constants.verifyImage),
+      waitlistImage(Constants.verifyImage),
       SizedBox(
         height: 20.h,
       ),

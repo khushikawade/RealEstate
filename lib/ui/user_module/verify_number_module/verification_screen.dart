@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
-import 'package:realstate/helper_widget/Send_code_again.dart';
 import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/helper_widget/button_widgets.dart';
 import 'package:realstate/helper_widget/pinput.dart';
@@ -61,7 +60,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   verificationForm(VerificationModel model) {
     return Form(
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        key: model.globalKey,
+        key: model.verificationGlobalKey,
         child: Padding(
             padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 0),
             child: Column(

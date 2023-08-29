@@ -7,7 +7,7 @@ class VerificationModel extends ChangeNotifier {
   VerificationModel({
     required BuildContext context,
   }) {}
-  final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> verificationGlobalKey = GlobalKey<FormState>();
   final TextEditingController pinController = TextEditingController();
   final FocusNode focusNode = FocusNode();
   bool forceErrorState = false;
@@ -29,17 +29,17 @@ class VerificationModel extends ChangeNotifier {
   }
 
   verificationButtonPressed() {
-    if (pinController.text == null ||
-        pinController.text.isEmpty ||
+    if (pinController.text.isEmpty ||
         pinController.text.length != 4) {
       forceErrorState = true;
       // errorMsg = true;
       notifyListeners();
-    } else if (globalKey.currentState!.validate()) {
+    } else if (verificationGlobalKey.currentState!.validate()) {
       forceErrorState = false;
       // errorMsg = false;
       notifyListeners();
-      Navigator.popAndPushNamed(AppUtil.getContext(), "/success_screen");
+      _timer?.cancel();
+      Navigator.pushNamed(AppUtil.getContext(), "/registration_screen");
     }
   }
 
@@ -49,6 +49,7 @@ class VerificationModel extends ChangeNotifier {
   }
 
   void startTimer() {
+    start = 60;
     const oneSec = Duration(seconds: 1);
     _timer = Timer.periodic(
       oneSec,
@@ -59,7 +60,7 @@ class VerificationModel extends ChangeNotifier {
           // Cancel the timer
         } else {
           start--;
-          // print(start);
+          print(start);
         }
       },
     );
@@ -67,8 +68,7 @@ class VerificationModel extends ChangeNotifier {
 @override
   void dispose() {
     _timer?.cancel();
-    pinController.dispose();
-    focusNode.dispose();
+   
     super.dispose();
   }
 }

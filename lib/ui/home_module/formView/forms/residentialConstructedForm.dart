@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:realstate/helper_widget/Text_widgets.dart';
+import 'package:realstate/helper_widget/textFormField.dart';
+import 'package:realstate/ui/home_module/formView/forms/checkBoxField.dart';
+import 'package:realstate/utils/app_colors.dart';
+import 'package:realstate/utils/constant.dart';
+import 'package:realstate/utils/validator.dart';
+
+ residentialConstructedForm(BuildContext context,model) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+       formLabelRichText(Constants.carpetArea,Constants.sqFt, context),
+      SizedBox(
+        height: 5.h,
+      ),
+      buildInputFields(
+        context,
+        model.carpetArea,
+        Constants.carpetArea,
+        AppColors.primaryColor,
+        AppColors.greyLight,
+        false,
+        100,
+        3,
+        keyboardType: TextInputType.text,
+        onChange: Validator.fieldNameValidate,
+        onTap: () {},
+        validator: (val) {
+          return Validator.fieldNameValidate(model.carpetArea.text);
+        },
+      ),
+       SizedBox(
+        height: 10.h,
+      ),
+      formLabelWidget(Constants.floor, context),
+      SizedBox(
+        height: 5.h,
+      ),
+      buildInputFields(
+              context,
+              model.firstDimension,
+              Constants.floor,
+              AppColors.primaryColor,
+              AppColors.greyLight,
+              false,
+              100,
+              3,
+              keyboardType: TextInputType.text,
+              onChange: Validator.fieldNameValidate,
+              onTap: () {},
+              validator: (val) {
+                return Validator.fieldNameValidate(model.firstDimension.text);
+              },
+            ),
+      
+      SizedBox(
+        height: 10.h,
+      ),
+      formLabelWidget(Constants.facing, context),
+      SizedBox(
+        height: 5.h,
+      ),
+      facing(context, model),
+      SizedBox(
+        height: 10.h,
+      ),
+      formLabelWidget(Constants.plotArea, context),
+      SizedBox(
+        height: 5.h,
+      ),
+      buildInputFields(
+        context,
+        model.plotArea,
+        Constants.plotArea,
+        AppColors.primaryColor,
+        AppColors.greyLight,
+        false,
+        100,
+        3,
+        keyboardType: TextInputType.text,
+        onChange: Validator.fieldNameValidate,
+        onTap: () {},
+        validator: (val) {
+          return Validator.fieldNameValidate(model.plotArea.text);
+        },
+      ),
+        
+      ],
+      
+    );
+  }

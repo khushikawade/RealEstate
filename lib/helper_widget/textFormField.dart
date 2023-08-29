@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_theme.dart';
+import 'package:realstate/utils/constant.dart';
 import 'package:realstate/utils/validator.dart';
 
 Widget buildInputFields(
@@ -12,9 +13,10 @@ Widget buildInputFields(
     TextEditingController controllername,
     String hinttext,
     fillcolor,
-    textcolor,
+    brdercolor,
     bool readonly,
     int max_length,
+    suffix,
     {TextInputType? keyboardType,
     onTap,
     Widget? icon,
@@ -31,6 +33,7 @@ Widget buildInputFields(
             validator: validator,
             controller: controllername,
             readOnly: readonly,
+            maxLines:hinttext==Constants.comment? 3:1,
 
             //enabled: false,
             keyboardType: keyboardType ?? TextInputType.text,
@@ -46,8 +49,6 @@ Widget buildInputFields(
             decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(
                     top: 16.sp, bottom: 16.sp, left: 24.sp, right: 24.sp),
-                // filled: true,
-                fillColor: fillcolor,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.r)),
                 focusedBorder: OutlineInputBorder(
@@ -60,7 +61,7 @@ Widget buildInputFields(
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.r),
                     borderSide: BorderSide(
-                      color: fillcolor,
+                      color:  brdercolor,
                       width: 1.0,
                     )),
                 focusedErrorBorder: OutlineInputBorder(
@@ -89,7 +90,7 @@ Widget buildInputFields(
                         padding: EdgeInsets.only(left: 26.sp, right: 10.sp),
                         child: icon)
                     : null,
-                suffixIcon: icon != null
+                suffixIcon: suffix == 1
                     ? Padding(
                         padding: EdgeInsets.only(right: 26.sp),
                         child: Icon(
@@ -98,6 +99,14 @@ Widget buildInputFields(
                               ? AppColors.primaryColor
                               : AppColors.textFieldHint,
                         ))
-                    : null));
+                    :suffix == 2
+                    ? Padding(
+                        padding: EdgeInsets.only(right: 26.sp),
+                        child: Icon(
+                          RealState.down_arrow,
+                         
+                        )): null
+
+                    ));
       });
 }

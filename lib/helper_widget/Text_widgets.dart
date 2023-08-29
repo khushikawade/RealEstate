@@ -21,6 +21,26 @@ Widget onboardingLabelWidget(text, context){
 Widget formLabelWidget(text, context){
  return Text(text,textAlign: TextAlign.left, style: AppTheme.lightTheme.textTheme.labelSmall!.copyWith(color: AppColors.black)); 
 }
+Widget formLabelRichText(text1,text2, context){
+
+return RichText(
+      text: TextSpan(
+          style: AppTheme.lightTheme.textTheme.labelSmall,
+          children: <TextSpan>[
+        TextSpan(
+            text: text1,
+            style:  TextStyle(
+              color: AppColors.black,
+              fontSize: 16.h, 
+            )),
+        TextSpan(
+            text: text2,
+            style:  TextStyle(
+              color: AppColors.textFieldHint,
+              fontSize: 16.h, 
+            )),
+      ]));
+}
 Widget buttonTextWidget(text, context){
  return Text(text, style: AppTheme.lightTheme.textTheme.labelMedium); 
 }
@@ -30,6 +50,10 @@ Widget headingTextWidget(text, context){
 Widget subheadingTextWidget(text, context){
  return Text(text, style: AppTheme.lightTheme.textTheme.displaySmall); 
 }
+Widget errorTextWidget(text, context){
+ return Text(text,textAlign: TextAlign.start, style: AppTheme.lightTheme.textTheme.bodyMedium!.copyWith(color: AppColors.errorColor)); 
+}
+
 Widget subeadingTextWidget(text, context) {
   return Text(
     text,

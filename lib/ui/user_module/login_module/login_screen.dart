@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget loginForm(LoginViewModel model) {
     return Form(
-            key: model.globalKey,
+            key: model.loginGlobalKey,
             child: Padding(
                 padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 0),
                 child: Column(

@@ -49,6 +49,14 @@ Widget phoneInputFields(
               borderSide: const BorderSide(
               color: AppColors.primaryColor,
             ),)),
+            // : OutlineInputBorder(
+            //         borderRadius: BorderRadius.circular(15.r),
+            //         borderSide: const BorderSide(
+            //           color: AppColors.errorColor,
+            //           width: 1.0,
+            //         )),
+          dropdownTextStyle:AppTheme.lightTheme.textTheme.labelSmall,
+          
       initialCountryCode: 'IN',
       showCountryFlag: false,
        showDropdownIcon: false,

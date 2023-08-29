@@ -95,10 +95,8 @@ Widget Main_list_tile(String title, IconData icon, model, int index) {
                 model.giveOnRent = false;
                 model.takeOnRent = false;
                 model.support = false;
-                model.previousPost = true;
-              } else {
-                model.previousPost = false;
-              }
+                model.previousPostOntap();
+              } 
 
             default:
               model.buyProperty = false;

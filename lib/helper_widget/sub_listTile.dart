@@ -4,13 +4,13 @@ import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_theme.dart';
 import 'package:realstate/utils/constant.dart';
 
-Widget subListtile(model, int heading) {
+Widget subListtile(model, String heading) {
   return Container(
       padding:
           EdgeInsets.only(top: 10.h, bottom: 10.h, left: 10.h, right: 10.h),
       decoration: BoxDecoration(
         border:
-            Border.all(width: 1.h, color: AppColors.greyLight.withOpacity(.9)),
+            Border.all(width: 1.h, color: AppColors.greyLight),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -23,13 +23,15 @@ Widget subListtile(model, int heading) {
               model,
               1),
           Divider(
-            color: AppColors.greyLight.withOpacity(.9),
+            color: AppColors.greyLight,
             height: 5.h,
             thickness: 1.h,
             indent: 10.h,
             endIndent: 10.h,
           ),
-          model.plot == true ? finalListTile(model, heading, 1) : Container(),
+          model.plot == true
+              ? plotListTile(model, heading, Constants.plot)
+              : Container(),
           sub_list_tile_helper(
               Constants.land,
               model.land == true
@@ -44,7 +46,9 @@ Widget subListtile(model, int heading) {
             indent: 10.h,
             endIndent: 10.h,
           ),
-          model.land == true ? finalListTile(model, heading, 2) : Container(),
+          model.land == true
+              ? commercialConstructedListTile(model, heading, Constants.land)
+              : Container(),
           sub_list_tile_helper(
               Constants.commercialConstructed,
               model.commercialConstructed == true
@@ -60,7 +64,7 @@ Widget subListtile(model, int heading) {
             endIndent: 10.h,
           ),
           model.commercialConstructed == true
-              ? finalListTile(model, heading, 3)
+              ? landListTile(model, heading, Constants.commercialConstructed)
               : Container(),
           sub_list_tile_helper(
               Constants.residentialConstructed,
@@ -70,7 +74,7 @@ Widget subListtile(model, int heading) {
               model,
               4),
           model.residentialConstructed == true
-              ? finalListTile(model, heading, 4)
+              ? residentialConstructedListTile(model, heading, Constants.residentialConstructed)
               : Container(),
         ],
       ));
@@ -98,6 +102,7 @@ Widget sub_list_tile_helper(String title, Widget? icon, model, int index) {
               textAlign: TextAlign.left,
               style: AppTheme.lightTheme.textTheme.bodySmall!.copyWith(
                 fontSize: 13.h,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
@@ -155,68 +160,163 @@ Widget sub_list_tile_helper(String title, Widget? icon, model, int index) {
   );
 }
 
-Widget finalListTile(model, int headinh, int subheading) {
+Widget plotListTile(model, String heading, String subheading) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Row(
       children: [
-        Expanded(
-            child: InkWell(
-          onTap: () {
-            model.buyPlotResidential(headinh, subheading, 1);
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 5.w,
-                height: 5.w,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.black),
-              ),
-              SizedBox(
-                width: 10.h,
-              ),
-              Text(
-                Constants.residential,
-                textAlign: TextAlign.left,
-                style: AppTheme.lightTheme.textTheme.bodySmall!.copyWith(
-                  fontSize: 13.h,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        )),
-        Expanded(
-            child: InkWell(
-          onTap: () {
-            model.buyPlotResidential(headinh, subheading, 2);
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 5.w,
-                height: 5.w,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.black),
-              ),
-              SizedBox(
-                width: 10.h,
-              ),
-              Text(
-                Constants.commercial,
-                textAlign: TextAlign.left,
-                style: AppTheme.lightTheme.textTheme.bodySmall!.copyWith(
-                  fontSize: 13.h,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ))
+        finalListTileItem(model, heading, subheading, Constants.residential),
+        finalListTileItem(model, heading, subheading, Constants.commercial),
+        
       ],
     ),
   );
+}
+Widget landListTile(model, String heading, String subheading) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.residential),
+            finalListTileItem(model, heading, subheading, Constants.commercial),
+            
+          ],
+        ),
+        SizedBox(
+           height: 8.h,
+        ),
+        Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.industrial),
+            finalListTileItem(model, heading, subheading, Constants.green),
+            
+          ],
+          ),
+          SizedBox(
+           height: 8.h,
+        ),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.agriculture),
+            
+          ],
+          ),
+          SizedBox(
+           height: 8.h,
+        ),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.nonAgriculture), 
+          ],
+          ),
+          
+      ],
+    ),
+  );
+}
+Widget commercialConstructedListTile(model, String heading, String subheading) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.office),
+            finalListTileItem(model, heading, subheading, Constants.showroom),
+            
+          ],
+        ),
+       SizedBox(
+           height: 8.h,
+        ),
+        Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.warehouse),
+            finalListTileItem(model, heading, subheading, Constants.restaurant),
+            
+          ],
+        ),
+        SizedBox(
+           height: 8.h,
+        ),
+        Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.independentBuilding), 
+          ],
+        ),
+        SizedBox(
+           height: 8.h,
+        ),
+         Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.industrialPlant), 
+          ],
+          ),
+      ],
+    ),
+  );
+}
+Widget residentialConstructedListTile(model, String heading, String subheading) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.bungalow),
+            finalListTileItem(model, heading, subheading, Constants.rowHouse),
+            
+          ],
+        ),
+        SizedBox(
+           height: 8.h,
+        ),
+         Row(
+          children: [
+            finalListTileItem(model, heading, subheading, Constants.apartment), 
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+ Widget finalListTileItem(
+    model, String heading, String subheading, String title) {
+  return Expanded(
+      child: InkWell(
+    onTap: () {
+      model.finalListTileItemontap(heading, subheading, title);
+    },
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 10.h,
+        ),
+        Container(
+          width: 5.w,
+          height: 5.w,
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: AppColors.black),
+        ),
+        SizedBox(
+          width: 10.h,
+        ),
+        Text(
+          title,
+          textAlign: TextAlign.left,
+          style: AppTheme.lightTheme.textTheme.bodySmall!.copyWith(
+            fontSize: 13.h,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
+    ),
+  ));
 }

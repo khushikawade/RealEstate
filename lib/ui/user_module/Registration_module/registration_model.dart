@@ -1,4 +1,3 @@
-// import 'dart:js';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ class registrationModel extends ChangeNotifier {
   registrationModel({
     required BuildContext context,
   }) {}
-  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  GlobalKey<FormState> registrationglobalKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailField = TextEditingController();
   TextEditingController dateField = TextEditingController();
@@ -38,11 +37,11 @@ class registrationModel extends ChangeNotifier {
 
   registrationButtonPressed() {
     onSignUpButtonTap = true;
-    if (globalKey.currentState!.validate() &&
+    if (registrationglobalKey.currentState!.validate() &&
         onTap &&
         Validator.emailValidateNew(emailField.text) == null) {
       // callRegisterApi();
-      Navigator.popAndPushNamed(AppUtil.getContext(), '/home_screen');
+      Navigator.pushNamed(AppUtil.getContext(), '/home_screen');
     }
   }
 
@@ -55,9 +54,7 @@ class registrationModel extends ChangeNotifier {
         lastDate: DateTime(2020));
 
     if (pickedDate != null) {
-      print(pickedDate);
       String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-      print(formattedDate);
       dateField.text = formattedDate;
       notifyListeners();
     } else {
