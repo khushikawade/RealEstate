@@ -1,7 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:realstate/services/api.dart';
+import 'package:realstate/services/models/otp_verify_resp_model.dart';
+import 'package:realstate/services/models/user_model.dart';
 import 'package:realstate/utils/app_util.dart';
+import 'package:realstate/utils/constant.dart';
 
 class VerificationModel extends ChangeNotifier {
   VerificationModel({
@@ -10,6 +14,7 @@ class VerificationModel extends ChangeNotifier {
   final GlobalKey<FormState> verificationGlobalKey = GlobalKey<FormState>();
   final TextEditingController pinController = TextEditingController();
   final FocusNode focusNode = FocusNode();
+  final Api _api = Api();
   bool forceErrorState = false;
   String errorMsg = '';
   Timer? _timer;
@@ -21,6 +26,13 @@ class VerificationModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  var _mobile;
+  get mobile => _mobile;
+  set mobile(var value) {
+    _mobile = value;
+    notifyListeners();
+  }
+
   int _start = 60;
   int get start => _start;
   set start(int value) {
@@ -28,19 +40,69 @@ class VerificationModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  Data? _userData;
+  Data? get userData => _userData;
+  set userData(Data? value) {
+    _userData = value;
+    notifyListeners();
+  }
+
   verificationButtonPressed() {
-    if (pinController.text.isEmpty ||
-        pinController.text.length != 4) {
+    if (pinController.text.isEmpty || pinController.text.length != 4) {
       forceErrorState = true;
-      // errorMsg = true;
       notifyListeners();
     } else if (verificationGlobalKey.currentState!.validate()) {
       forceErrorState = false;
-      // errorMsg = false;
       notifyListeners();
       _timer?.cancel();
-      Navigator.pushNamed(AppUtil.getContext(), "/registration_screen");
+      callValidateOtpApi();
     }
+  }
+
+  Future<void> callValidateOtpApi() async {
+    showLoader = true;
+    var map = Map<String, dynamic>();
+    map['mobile'] = mobile;
+    map['otp'] = pinController.text;
+
+    OtpVerifyResp otpVerifyResp = await _api.otpVerifyApi(map);
+
+    switch (otpVerifyResp.status) {
+      case Constants.sucessCode:
+        if (otpVerifyResp.message != null &&
+            otpVerifyResp.message!.isNotEmpty) {
+          if (otpVerifyResp.data != null && otpVerifyResp.data != '') {
+             User user =
+            User(mobile:  mobile,);
+            Navigator.pushNamed(AppUtil.getContext(), "/registration_screen",
+             arguments: user);
+          }
+        
+        }
+
+        break;
+      case Constants.wrongError:
+        AppUtil.showDialogbox(AppUtil.getContext(),
+            otpVerifyResp.error ?? 'Oops Something went wrong');
+
+        break;
+
+      case Constants.networkErroCode:
+        AppUtil.showDialogbox(AppUtil.getContext(),
+            otpVerifyResp.error ?? 'Oops Something went wrong');
+
+        break;
+      default:
+        {
+          if (otpVerifyResp.error != null && otpVerifyResp.error!.isNotEmpty) {
+            AppUtil.showDialogbox(AppUtil.getContext(),
+                otpVerifyResp.error ?? 'Oops Something went wrong');
+          }
+        }
+        break;
+    }
+
+    showLoader = false;
   }
 
   resendCode() {
@@ -65,10 +127,10 @@ class VerificationModel extends ChangeNotifier {
       },
     );
   }
-@override
+
+  @override
   void dispose() {
     _timer?.cancel();
-   
     super.dispose();
   }
 }

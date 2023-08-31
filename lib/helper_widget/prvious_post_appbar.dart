@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
-import 'package:realstate/ui/PreviousPostModule/PreviousPostScreen/PreviousPostModel.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_theme.dart';
 import 'package:realstate/utils/constant.dart';
+
+import '../ui/previous_post_module/PreviousPostScreen/previous_post_model.dart';
 
 class PriviousPostAppBar extends StatelessWidget {
   final String? appBarTitle;

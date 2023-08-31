@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:realstate/ui/home_module/ProfileModel/profileScreen.dart';
-import 'package:realstate/ui/home_module/homeScreen/home_screen.dart';
+import 'package:realstate/ui/home_module/profile_module/profile_screen.dart';
+import 'package:realstate/ui/home_module/home_screen/home_screen.dart';
 
 class HomeViewModel extends ChangeNotifier {
 

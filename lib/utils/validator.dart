@@ -108,7 +108,8 @@ class Validator {
 
   static String? fieldNameValidate(String value) {
     if (  value.length < 2) {
-      return Constants.pleaseEnterName;
+      // return Constants.pleaseEnterName;
+       return "Required";
     }
     return null;
   }

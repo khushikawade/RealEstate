@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realstate/ui/home_module/formView/formView.dart';
+import 'package:realstate/ui/home_module/form_view/form_view.dart';
 import 'package:realstate/utils/app_util.dart';
 
 class HomeScreenModel extends ChangeNotifier {

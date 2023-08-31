@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
-import 'package:realstate/helper_widget/ListMaintile.dart';
-import 'package:realstate/helper_widget/sub_listTile.dart';
-import 'package:realstate/ui/home_module/homeScreen/home_screen_model.dart';
+import 'package:realstate/helper_widget/list_main_tile.dart';
+import 'package:realstate/helper_widget/sub_list_tile.dart';
+import 'package:realstate/ui/home_module/home_screen/home_screen_model.dart';
 
 import 'package:realstate/utils/app_theme.dart';
 import 'package:realstate/utils/constant.dart';

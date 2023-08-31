@@ -2,38 +2,43 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
+import 'package:realstate/ui/user_module/registration_module/registration_model.dart';
+
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_theme.dart';
 import 'package:realstate/utils/constant.dart';
 
 class ImagePickerWidget extends StatefulWidget {
   ImagePickerWidget({
+    
     super.key,
   });
   @override
   State<ImagePickerWidget> createState() => _ImagePickerWidgetState();
 }
 
-final ImagePicker _picker = ImagePicker();
 
-bool isLoading = false;
 
-String? imageurlpro;
-XFile? url;
+// bool isLoading = false;
+
+// String? imageurlpro;
+// XFile? url;
 
 class _ImagePickerWidgetState extends State<ImagePickerWidget> {
   @override
   Widget build(BuildContext context) {
+      final model = Provider.of<registrationModel>(context);
     return InkWell(
         onTap: () {
-          imagesBottomSheet(context);
+          imagesBottomSheet(context,model);
         },
         // child:
-        child: url != null ? imageWidget(url!) : dottedBorder());
+        child: model.url != null ? imageWidget(model.url!,model) : dottedBorder());
   }
 
-  Widget imageWidget(XFile image) {
+  Widget imageWidget(XFile image,registrationModel model) {
     return Stack(
       children: [
         CircleAvatar(
@@ -48,50 +53,50 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
     );
   }
 
-  Widget imageCard(XFile image) {
-    return Stack(children: [
-      Container(
-          width: 100.w,
-          height: 130.h, //height of inner container
+  // Widget imageCard(XFile image) {
+  //   return Stack(children: [
+  //     Container(
+  //         width: 100.w,
+  //         height: 130.h, //height of inner container
 
-          decoration: BoxDecoration(
-            color: AppColors.green,
-            borderRadius: BorderRadius.circular(23),
-          ),
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: Image.file(
-                frameBuilder: ((context, child, frame, wasSynchronouslyLoaded) {
-                  if (wasSynchronouslyLoaded) return child;
+  //         decoration: BoxDecoration(
+  //           color: AppColors.green,
+  //           borderRadius: BorderRadius.circular(23),
+  //         ),
+  //         child: ClipRRect(
+  //             borderRadius: BorderRadius.circular(18),
+  //             child: Image.file(
+  //               frameBuilder: ((context, child, frame, wasSynchronouslyLoaded) {
+  //                 if (wasSynchronouslyLoaded) return child;
 
-                  return frame != null ? child : CircularProgressIndicator();
-                }),
-                File(image.path),
-                fit: BoxFit.fill,
-              ))),
-      Positioned(
-        bottom: 1,
-        child: Container(
-          width: 32.w,
-          height: 32.h,
-          decoration: ShapeDecoration(
-              shape: CircleBorder(), color: AppColors.primaryColor),
-          child: IconButton(
-            onPressed: () {
-              imagesBottomSheet(context);
-            },
-            icon: Icon(
-              Icons.edit,
-              color: Colors.white,
-              size: 18.sp,
-            ),
-          ),
-        ),
-      )
-    ]);
-  }
+  //                 return frame != null ? child : CircularProgressIndicator();
+  //               }),
+  //               File(image.path),
+  //               fit: BoxFit.fill,
+  //             ))),
+  //     Positioned(
+  //       bottom: 1,
+  //       child: Container(
+  //         width: 32.w,
+  //         height: 32.h,
+  //         decoration: ShapeDecoration(
+  //             shape: CircleBorder(), color: AppColors.primaryColor),
+  //         child: IconButton(
+  //           onPressed: () {
+  //             imagesBottomSheet(context,model);
+  //           },
+  //           icon: Icon(
+  //             Icons.edit,
+  //             color: Colors.white,
+  //             size: 18.sp,
+  //           ),
+  //         ),
+  //       ),
+  //     )
+  //   ]);
+  // }
 
-  imagesBottomSheet(BuildContext context) {
+  imagesBottomSheet(BuildContext context,registrationModel model) {
     showModalBottomSheet(
         shape: const RoundedRectangleBorder(
           // <-- SEE HERE
@@ -110,7 +115,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
                   title: Text("Photos",
                       style: AppTheme.lightTheme.textTheme.labelSmall),
                   onTap: () {
-                    _imgFromGallery(context);
+                    _imgFromGallery(context,model);
                   }),
               ListTile(
                 leading: const Icon(Icons.camera_alt_outlined),
@@ -119,7 +124,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
                 onTap: () {
                   Navigator.of(context).pop();
 
-                  _cameraImage(context);
+                  _cameraImage(context,model);
                 },
               ),
             ],
@@ -127,36 +132,39 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
         });
   }
 
-  _imgFromGallery(BuildContext context) async {
-    setState(() {
-      isLoading = true;
-    });
+  _imgFromGallery(BuildContext context,registrationModel model) async {
+    model.isLoading = true;
+    // setState(() {
+    //   isLoading = true;
+    // });
 
-    XFile? pickedFile = (await _picker.pickImage(
+    XFile? pickedFile = (await model.picker.pickImage(
         source: ImageSource.gallery, preferredCameraDevice: CameraDevice.rear));
 
     if (pickedFile != null) {
-      setState(() {
-        url = pickedFile;
-      });
+      model.url = pickedFile;
+      // setState(() {
+      //   model.url = pickedFile;
+      // });
 
       Navigator.pop(context);
     } else {
       Navigator.pop(context);
     }
+    model.isLoading = false;
 
-    setState(() {
-      isLoading = false;
-    });
+    // setState(() {
+    //   isLoading = false;
+    // });
   }
 
-  Future<void> _cameraImage(BuildContext context) async {
-    final XFile? camera = await _picker.pickImage(
+  Future<void> _cameraImage(BuildContext context,registrationModel model) async {
+    final XFile? camera = await model.picker.pickImage(
         source: ImageSource.camera, preferredCameraDevice: CameraDevice.rear);
 
     if (camera != null) {
       setState(() {
-        url = camera;
+        model.url = camera;
 
         // widget.subtitle == 'front' ? url = camera : backurl = camera;
       });

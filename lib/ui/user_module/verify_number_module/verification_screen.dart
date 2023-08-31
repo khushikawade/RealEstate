@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
-import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/helper_widget/button_widgets.dart';
+import 'package:realstate/helper_widget/text_widgets.dart';
 import 'package:realstate/helper_widget/pinput.dart';
+import 'package:realstate/services/models/user_model.dart';
 import 'package:realstate/ui/user_module/verify_number_module/verification_model.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_size.dart';
@@ -23,11 +24,18 @@ class _VerificationScreenState extends State<VerificationScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final otpVerifyModel =
           Provider.of<VerificationModel>(context, listen: false);
+      final User? message = ModalRoute.of(context)?.settings.arguments as User?;
+      print(message!.mobile);
+      print(message.otp);
+      if (message != null) {
+        otpVerifyModel.pinController.text = message.otp.toString();
+        otpVerifyModel.mobile = message.mobile;
+      }
       otpVerifyModel.startTimer();
     });
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<VerificationModel>(context);
@@ -53,7 +61,6 @@ class _VerificationScreenState extends State<VerificationScreen> {
       SizedBox(
         height: 20.h,
       ),
-      
     ])));
   }
 
@@ -71,7 +78,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   height: 25.h,
                 ),
 
-        //----------------Timer---------------------//        
+                //----------------Timer---------------------//
                 RichText(
                     text: TextSpan(
                         style: AppTheme.lightTheme.textTheme.displaySmall!
@@ -79,31 +86,30 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           fontSize: AppSize.size12,
                         ),
                         children: <TextSpan>[
-                     const  TextSpan(
+                      const TextSpan(
                           text: Constants.codeExpiresIn,
-                          style:TextStyle(
+                          style: TextStyle(
                             color: AppColors.codeExpire,
                             fontWeight: FontWeight.w400,
                           )),
-                      
-                         const TextSpan(
+                      const TextSpan(
                           text: "00:",
-                          style:TextStyle(
+                          style: TextStyle(
                             color: AppColors.timer,
                             fontWeight: FontWeight.w500,
                           )),
-                          TextSpan(
+                      TextSpan(
                           text: model.start.toString(),
                           style: const TextStyle(
                             color: AppColors.timer,
                             fontWeight: FontWeight.w500,
                           )),
                     ])),
-                    SizedBox(
+                SizedBox(
                   height: 10.h,
                 ),
 
-        //----------------resend code---------------------//            
+                //----------------resend code---------------------//
                 RichText(
                     text: TextSpan(
                         style: AppTheme.lightTheme.textTheme.displaySmall!
@@ -111,7 +117,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           fontSize: AppSize.size12,
                         ),
                         children: <TextSpan>[
-                     const  TextSpan(
+                      const TextSpan(
                           text: Constants.didNotReceive,
                           style: TextStyle(
                             color: AppColors.codeExpire,
@@ -121,12 +127,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           text: Constants.resend,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () => model.resendCode(),
-                          style:  TextStyle(
-                            color: model.start == 0 ?  AppColors.timer:AppColors.codeExpire,
+                          style: TextStyle(
+                            color: model.start == 0
+                                ? AppColors.timer
+                                : AppColors.codeExpire,
                             fontWeight: FontWeight.w500,
                           )),
                     ])),
-                    SizedBox(
+                SizedBox(
                   height: 25.h,
                 ),
                 ButtonWidget(

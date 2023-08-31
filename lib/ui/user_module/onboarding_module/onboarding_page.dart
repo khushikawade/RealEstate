@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
-import 'package:realstate/helper_widget/Text_widgets.dart';
+import 'package:realstate/helper_widget/text_widgets.dart';
 import 'package:realstate/ui/user_module/onboarding_module/onboarding_view_model.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/constant.dart';

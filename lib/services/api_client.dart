@@ -6,7 +6,7 @@ import 'package:http_parser/http_parser.dart';
 
 @lazySingleton
 class ApiClient {
-  static const String BASE_URL = 'https://mm-api.zehntech.net/api/v1/';
+  static const String BASE_URL = 'http://13.235.245.147:8000/api/v1/';
 
   Future<http.Response> getMethod(String url,
       {Map<String, String>? headers}) async {
@@ -31,24 +31,6 @@ class ApiClient {
     return response;
   }
 
-  // Future<Map<String, dynamic>> postMethodRow(String method, var body,
-  //     {Map<String, String>? header}) async {
-  //   try {
-  //     print(body);
-  //   print(header);
-  //   print(BASE_URL + method);
-  //   final  jsonString = json.encode(body);
-  //   http.Response response = await http.post(Uri.parse(BASE_URL + method),
-  //       body: jsonString, headers: header);
-
-  //   Map<String, dynamic> encodedString = jsonDecode(response.body);
-  //   print(encodedString);
-
-  //   return encodedString;
-  //   } catch (e) {
-  //     throw(e);
-  //   }
-  // }
   Future<http.Response> postMethodRow(String method, var body,
       {Map<String, String>? header}) async {
     final jsonString = json.encode(body);

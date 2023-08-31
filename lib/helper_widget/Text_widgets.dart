@@ -54,14 +54,56 @@ Widget errorTextWidget(text, context){
  return Text(text,textAlign: TextAlign.start, style: AppTheme.lightTheme.textTheme.bodyMedium!.copyWith(color: AppColors.errorColor)); 
 }
 
-Widget subeadingTextWidget(text, context) {
+Widget ListTileHeading(text,context) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: TextAlign.left,
     style: TextStyle(
-        color: AppColors.black,
+        color: AppColors.previousFont,
         fontFamily: 'Inter',
-        fontWeight: FontWeight.w400,
-        fontSize:AppSize.size28),
+        fontWeight: FontWeight.w600,
+        fontSize:AppSize.size14),
   );
+}
+Widget ListTileSubheading(text,context) {
+  return Text(
+    text,
+    textAlign: TextAlign.left,
+    style: TextStyle(
+        color: AppColors.previousFont2,
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w500,
+        fontSize:AppSize.size12),
+  );
+}
+Widget ListTilecontaint(text,context) {
+  return Text(
+    text,
+    textAlign: TextAlign.start,
+    style: TextStyle(
+        color: AppColors.buttonColor,
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w500,
+        fontSize:10.h),
+  );
+}
+Widget previousPostMatches(text1,text2, context){
+
+return RichText(
+      text: TextSpan(
+          style: AppTheme.lightTheme.textTheme.labelSmall,
+          children: <TextSpan>[
+        TextSpan(
+            text: text1,
+            style:  TextStyle(
+              color: AppColors.white,
+              fontSize: 14.h, 
+            )),
+        TextSpan(
+            text: text2,
+            style:  TextStyle(
+              color: AppColors.white,
+              fontSize: 10.h, 
+            )),
+      ]));
 }

@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/custom_fonts/real_state_icons.dart';
-import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/helper_widget/button_widgets.dart';
-import 'package:realstate/helper_widget/textFormField.dart';
-import 'package:realstate/ui/user_module/Registration_module/image_picker.dart';
-import 'package:realstate/ui/user_module/Registration_module/registration_model.dart';
+import 'package:realstate/helper_widget/image_picker.dart';
+import 'package:realstate/helper_widget/text_widgets.dart';
+import 'package:realstate/helper_widget/text_form_field.dart';
+import 'package:realstate/services/models/user_model.dart';
+import 'package:realstate/ui/user_module/registration_module/registration_model.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_size.dart';
 import 'package:realstate/utils/app_theme.dart';
@@ -22,6 +23,17 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   void initState() {
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+      final otpVerifyModel =
+          Provider.of<registrationModel>(context, listen: false);
+      final User? message = ModalRoute.of(context)?.settings.arguments as User?;
+      print(message!.mobile);
+      print(message.otp);
+      if (message != null) {
+        otpVerifyModel.mobile = message.mobile;
+      }
+     
+    });
 
     super.initState();
   }
@@ -80,6 +92,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   onTap: () {},
                  icon: Icon(
                     RealState.user_rounded,
+                    color: AppColors.primaryColor,
                     size: 14.h,
                   ),
 
@@ -109,6 +122,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   onTap: () {},
                   icon: Icon(
                     RealState.letter_unread,
+                    color: AppColors.primaryColor,
                     size: 14.h,
                   ),
                   validator: (val) {

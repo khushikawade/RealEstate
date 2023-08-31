@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:realstate/helper_widget/Image_widgets.dart';
-import 'package:realstate/helper_widget/Text_widgets.dart';
-import 'package:realstate/helper_widget/progress_indicator.dart';
+import 'package:realstate/helper_widget/progress_Indicator.dart';
+import 'package:realstate/helper_widget/text_widgets.dart';
 import 'package:realstate/ui/user_module/splash_module/splash_view_model.dart';
 import 'package:realstate/utils/constant.dart';
 

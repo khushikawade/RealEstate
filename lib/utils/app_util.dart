@@ -3,8 +3,8 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-// import 'package:micro_mitti/localization/app_localization.dart';
 import 'package:realstate/helper_widget/error_box_widget.dart';
+// import 'package:micro_mitti/localization/app_localization.dart';
 import 'package:realstate/helper_widget/success_box_widget.dart';
 import 'package:realstate/utils/app_colors.dart';
 

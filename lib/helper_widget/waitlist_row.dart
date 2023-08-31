@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:realstate/custom_fonts/real_state_icons.dart';
-import 'package:realstate/helper_widget/Text_widgets.dart';
 import 'package:realstate/utils/app_colors.dart';
 import 'package:realstate/utils/app_theme.dart';
-import 'package:realstate/utils/constant.dart';
+
 
 Widget waitListSingleRow(
    BuildContext context,
